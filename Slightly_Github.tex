@@ -1,0 +1,182 @@
+\chapter{Slightly Advanced GitHub}\label{chap: Slightly Advanced Github}
+
+In this chapter, we want to get hold of a copy of a repository and make changes to it. After testing---very important---we want to upload our changes.
+
+We have two choices here.
+
+\begin{itemize}
+    \item Create a ``fork'' of a repository for our own use to prevent changes made to the original from updating ours unless we choose to apply them.
+    \item Create a fork, but use it to offer our changes back to the original.
+\end{itemize}
+
+Either way, we will need a GitHub account before we can proceed. The rest of this document assumes you have one.
+
+\section{Forking a Repository}\label{sect: Forking}
+
+The process to fork a repository---take a full copy and work on it ourselves, outwith the control of the original authors---is actually quite simple.
+
+\begin{itemize}
+    \item Login to GitHub and find your way to the home page for the repository you want to fork.
+    \item On the same line as the repository title, towards the right side, click on ``fork''.
+    \item On the next page---Create a new fork---check that the name defaulted is suitable, change it if not.
+    \item Click ``Create Fork'' button.
+    \item Wait \ldots
+    \item A new page appears, showing the home page for \emph{your} fork of the original project.
+\end{itemize}
+
+Now that we have a fork, we can proceed to work on it. We have two choices here:
+
+\begin{itemize}
+    \item Work on the code for our own benefit, but keep changes to ourselves.
+    \item Work on the code, perhaps fixing bugs or making improvements, for our own and everyone's benefit.
+\end{itemize}
+
+\section{Forking For Ourselves}\label{sect: Fork yourself}
+
+If we want to make changes and keep them to ourselves, and we do not want any updates to the original repository to overwrite our changes, we need to:
+
+\begin{itemize}
+    \item Fork the required repository as per \sectref{sect: Forking}.
+    \item Clone the fork onto our local PC as per \sectref{sect: Cloning a repository}
+    \item Work on the clone:
+    \begin{itemize}
+        \item Create branches for changes. \code{git checkout -B my\_branch}
+        \item Edit the code, compile \& test. Repeat!
+        \item Schedule the changes:
+        \begin{itemize}
+            \item Add everything. \code{git add --all}
+            \item Alternatively, add named files. \code{git add <list of files>}
+            \item Commit said changes. \code{git commit -m ``What I did here''}
+        \end{itemize}
+    \end{itemize}
+    \item Merge commit(s) into the main branch.
+    \begin{itemize}
+        \item Checkout ``main'' branch. \code{git checkout main}
+        \item Merge the branch changes. \code{git merge my\_branch}
+    \end{itemize}
+    \item Push commits back to our fork. \code{git push}
+    \item Delete the now unwanted branch. \code{git branch -D my\_branch}
+    \item Optionally, ``tag'' the new state of the repository, perhaps for a release? \code{git tag -a -m ``Release 1.00'' Rel\_1.00}---Don't have spaces in the tag name! Alternatively, \code{git tag Rel\_1.00}.
+\end{itemize}
+
+That's all we have to do. Any changes we make will never be overwritten by changes made to the original that we might subsequently apply to our fork. There is a slight chance of a conflict if we change the same lines as the original authors, but that's fairly simple to resolve.
+
+Maybe, one day, we decide we want to share our changes with the original authors. How do we do that?
+
+\section{Forking For Everybody}\label{sect: Fork everyone}
+
+Making our changes available back to the original authors for \emph{possible} inclusion in the original repository is very similar to the processes outlined in \sectref{sect: Fork yourself}:
+
+\begin{itemize}
+    \item Fork the required repository as per \sectref{sect: Forking}.
+    \item Clone the fork onto our local PC as per \sectref{sect: Cloning a repository}
+    \item Work on the clone:
+    \begin{itemize}
+        \item Create branches for changes. \code{git checkout -B my\_branch}
+        \item Edit the code, compile \& test. Repeat!
+        \item Schedule the changes:
+        \begin{itemize}
+            \item Add everything. \code{git add --all}
+            \item Alternatively, add named files. \code{git add <list of files>}
+        \end{itemize}
+        \item Commit said changes. \code{git commit -m ``What I did here''}
+        \end{itemize}
+        \item Merge commit(s) into the main branch.
+        \begin{itemize}
+            \item Checkout ``main'' branch. \code{git checkout main}
+            \item Merge the branch changes. \code{git merge my\_branch}
+    \end{itemize}
+    \item Push commits back to our fork. \code{git push}
+    \item Raise a ``merge request'' back to the original repository. See \sectref{sect: Raising a merge request} below.
+    \item Wait for the merge to be approved or rejected.
+    \item Only now, can you delete the now merged branch. Don't forget to make sure that you are not currently checked out on the branch to be deleted. \code{git checkout main} followed by \code{git branch -D my\_branch}
+    \item Optionally, ``tag'' the new state of the repository, perhaps for a release? \code{git tag -a -m ``Release 1.00'' Rel\_1.00}---Don't have spaces in the tag name! Alternatively, \code{git tag Rel\_1.00}.
+    \item If you decide to tag the repository, as it is now, but are not making a release, you can still tag it. \code{git tag -a -m ``tagging my changes'' my\_changes}. \code{git tag --list} will display all known tags.
+\end{itemize}
+
+\section{Keeping Our Fork Up-to-date}
+
+Keeping our fork up to date with the changes made to the original repository is surprisingly easy.
+
+\begin{itemize}
+    \item Login to our own github account.
+    \item Open the repository's home page.
+    \item By the title there will be a notice that \emph{``this repository is nn commits ahead of, and nn commits behind <original repository>''}.
+    \item Click the ``Sync Fork'' button.
+    \item That's it!
+\end{itemize}
+
+Now that our repository has been updated, we need to update the local clone on our PC.
+
+\begin{itemize}
+    \item Start a terminal session.
+    \item Navigate to the location where you created the clone.
+    \item Execute the command \code{git pull}.
+    \item That's all!
+\end{itemize}
+
+
+\section{Raising a Merge Request}\label{sect: Raising a merge request}
+
+After our changes have been made, tested, merged and pushed to our fork, we are now ahead of the original repository. If we don't care about passing changes back to the original, this is fine, we can delete our temporary branch as it is no longer needed.
+
+However, if we do wish to share our changes with the original authors, we need to raise a \emph{Merge Request}. The processes are described next.
+
+\subsection{Raising the Merge Request}
+
+To raise a merge request, aimed back at the original repository, proceed as follows:
+
+\begin{itemize}
+    \item Login to your account and open the fork's home page within your account.
+    \item Click ``Pull requests'' near the top left.
+    \item Click ``New pull request''---it's a green button.
+    \item Check or fill in the following:
+    \item Base repository: Username/repository name for original repository.
+    \item Base: Master or Main as appropriate. It's a drop down, so select it.
+    \item Head repository: Your user/Fork name
+    \item Compare: Pick your branch for this change.
+    \item When done, look for ``Able to merge''. indicating all is well. Otherwise, there are fixes to be made!
+    \item Click ``Create pull request''---it's a green button again.
+    \item Make sure the title and descriptions are meaningful and complete with all information appropriate.
+    \item Click ``Create pull request'' below the description.
+\end{itemize}
+
+At this point, it is out of your control. \emph{DO NOT} delete the branch you created---the original repository needs it to merge your changes. Just leave it alone.
+
+You might have to wait some time. Be patient.
+
+\subsection{Actioned by the Original Authors}
+
+The original development team responsible for the repository will get a notification that a pull request has been raised. They will, in an ideal world:
+
+\begin{itemize}
+    \item Click on ``Pull requests''.
+    \item Clicks on your pull request.
+    \item Sees a message that there are no ``No conflicts'', which means they can merge your changes.
+    \item Reads, checks the changes, your code standards etc.
+    \item S/he/they might request further information. S/he/they might need some specific tests, disclaimers etc.
+    \item Eventually, clicks ``Merge pull request''.
+    \item Updates the title and description.
+    \item Clicks ``Confirm merge''.
+\end{itemize}
+
+That's it. Your changes are merged, everybody in the world has access to them and can sing your praises for evermore! (Perhaps.)
+
+
+\subsection{Checking the Merge has Completed}
+
+At some point, you will get a notification when you login. Click the ``in-tray'' icon, top right to see your notifications.
+
+One of them will be regarding the merge request. Click it. You will see whatever the original authors write in the description of the merge request when they applied it.
+
+In addition, you will no longer see your merge request in the ``pull requests'' area of your fork. You can check them though:
+
+\begin{itemize}
+    \item Click ``Pull requests''
+    \item Change the search criteria from ``is:pe state:open'' to ``is:pr state:closed'' or ``is:pr state:merged''
+    \item Check the request(s) that appear to read the details.
+\end{itemize}
+
+Once you have confirmed that your change has been merged and the pull request has been closed, you can delete the branch, finally.
+
+

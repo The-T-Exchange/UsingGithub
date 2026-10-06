@@ -1,0 +1,59 @@
+\chapter{Very Simple GitHub}\label{chapter: Very Simple GitHub}
+
+The simplest use of GitHub is just to download some code, a document, a presentation or whatever. There's no need or wish to see the source code as you have no intention of looking at it, changing it or touching it in any way.
+
+To access GitHub in this manner, you do not need an account, just the URL of the repository which holds the code that you are interested in, or hopefully, the username and project name.
+
+For the sake of an example, we will consider using Norman Dunbar's ``QL Assembly Language'' eBook.
+
+\section{Repository URL Supplied}\label{sect: Repo URL Supplied}
+
+
+If you have been given the URL for the repository---\url{https://github.com/NormanDunbar/QLAssemblyLanguageMagazine}---you will need to open your browser there.
+
+Obviously this shows the code, which is what you don't want, so look for ``Releases'' over on the right side of the screen. (There might be a number beside it, that's how many releases there are so far.)
+
+\begin{itemize}
+    \item Click ``Releases'' or ``Latest'' and you will be taken to an area of GitHub where you can download whatever Norman Dunbar has released for this particular project.
+    \begin{itemize}
+        \item ``Latest'' takes you directly to the most recent release of the QL Assembly Book.
+        \item ``Releases'' takes you to the list of all releases, in newest to oldest order.
+    \end{itemize}
+    \item If there are no releases, you are up that famous creek---you might need to compile the code yourself, or find another utility to do the same task. (See \sectref{sect: Searching} below.)
+    \item Where there are releases, beside the word ``Assets'', click the rightward pointing tiny arrowhead to open the list of assets provided in the release.
+    \item As you do not want the source code, ignore the two assets with that name. Click on the PDF filename to download the eBook and also, if you want, click on the ``code.zip'' filename to grab all the code used in the book---if you want it that is.
+    \item You can now go off, run yourself a nice hot bath, grab a glass of wine and settle back for a good read of the PDF file on writing assembly language for the 1980s Sinclair QL computer!
+\end{itemize}
+
+\section{Searching}\label{sect: Searching}
+
+You don't have the GitHub URL for the project, but you know it \emph{might} have been someone named ``Norman Dunbar'' and you are pretty sure that the project had ``Assembly'' in it, somewhere. You need to search.
+
+\begin{itemize}
+    \item Login to \url{https://github.com} in your browser.
+    \item Press the forward-slash key ('/') or click on the ``Search'' box near the top-right of the page.
+    \item Type ``Norman Dunbar'', with quotes and press return. The quotes forces a search for the text as given, not ``Norman'' or ``Dunbar''. A page of results will hopefully be displayed. If all is well, you will find the user, otherwise\ldots
+    \item On the left side, under ``Filter By'', click on ``Users''. The result should change to show the desired user' account.
+    \item Click on the blue text of his name.
+\end{itemize}
+
+We have found the required user, but so far, not the code we want. We need to search Norman Dunbar's repositories.
+
+\begin{itemize}
+    \item On the NormanDunbar home page, press the forward-slash key again, or click on ``Search''.
+    \item You will see the search text box pre-loaded with ``owner:NormanDunbar''. Add the word ``Assembly'' (without quotes).
+    \item A list of possible matches is displayed One of which is \path{Assembly_Language_003.tex} and underneath that is the repository name---\emph{QLAssemblyLanguage\allowbreak{}Magazine}, which looks like what we are after. Click it.
+    \item A new page is displayed showing the title \path{QLAssemblyLanguageMagazine/Issue_003/Assembly_Language_003.tex} and the content of the file is displayed in the rest of the page.
+    \item Click on the \emph{QLAssemblyLanguageMagazine} word in the title to go to the main repository page.
+    \item Now proceed as in \sectref{sect: Repo URL Supplied} above to download the required code.
+\end{itemize}
+
+If the search failed to find anything suitable, we have to scan through all of Norman Dunbar's repositories.
+
+\begin{itemize}
+    \item Make sure you are on the NormanDunbar home page as before. Click back through the previous pages if you have moved off of it.
+    \item On the home page, click ``Repositories'' on the top left. The number adjacent to ``Repositories'' is the number you have to scan through to find the one you are hoping to find.
+    \item Click ``Sort'' over to the right and select the ``Name'' option---the default is from most recently used to least recently used.
+    \item Scroll through the list looking for something that looks like what you want. Your browser \emph{might} let you search for text on the page, try CTRL-F and see what happens. You can search for the word ``Assembly'' which you think is in the repository name.
+    \item Click ``Next >'' at the bottom if you didn't find it. Repeat as necessary until you either do find it, or run out of repositories!
+\end{itemize}

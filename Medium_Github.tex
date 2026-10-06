@@ -1,0 +1,45 @@
+\chapter{Medium GitHub}\label{chap: Medium GitHub}
+
+This manner of using GitHub is quite common, and we won't need an account to be able to proceed.
+
+\begin{itemize}
+    \item We wish to download code for our own use.
+    \item We may intend to make some changes to suit our needs, but only for ourselves.
+    \item We don't intend to upload our changes to the original authors as we are a particular niche case!
+\end{itemize}
+
+We can either:
+
+\begin{itemize}
+    \item Download the Zip file with the source code, and get a release if necessary, as already discussed in \chapref{chapter: Very Simple GitHub} and \chapref{chapter: Simple GitHub}.
+    \item Alternatively, ``clone'' the repository to our PC.
+\end{itemize}
+
+\section{Cloning a Repository}\label{sect: Cloning a repository}
+
+Assuming the procedures outlined in \chapref{chapter: Very Simple GitHub} or \chapref{chapter: Simple GitHub} are not enough for us, then proceed as follows to clone the repository and its full change history, onto our PC.
+
+\begin{itemize}
+    \item Locate the required repository using any supplied URL or by searching for it.
+    \item Click on the ``<> Code'' button as before.
+    \item Click ``HTTPS''
+    \item Click the icon to copy the repository URL.
+    \item Open a terminal session on your PC.
+    \item Navigate to wherever you keep your source code, for me it's all kept under \path{SourceCode}.
+    \item Within the \path{SourceCode} directory, type \code{git clone } and paste in the URL just coped, to get something like \code{git clone https://github.com/Norman\allowbreak{}Dunbar/QLAssemblyLanguageMagazine.git}. Press return.
+    \item The GitHub repository will be cloned to your PC, creating a new sub-directory named \path{QLAssemblyLanguageMagazine} inside your \path{SourceCode} directory.
+    \item Now, go play with the code. Make changes, recompile it, have fun!
+\end{itemize}
+
+Remember, you have no ability to upload your changes to the original repository.
+
+\section{Updating the Cloned Repository}
+
+You can, from time to time, update your clone of the repository quite simply.
+
+\begin{itemize}
+    \item Open a terminal session on your PC.
+    \item Navigate to the \path{SourceCode/QLAssemblyLanguageMagazine} sub-directory.
+    \item Type the command ``git pull'' and press return.
+    \item Any updates made by the original author(s) will be downloaded to your clone, \emph{overwriting what was there before}---it's best not to do this if you have made any important changes!
+\end{itemize}
