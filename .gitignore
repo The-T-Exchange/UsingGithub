@@ -12,6 +12,9 @@
 *.cb2
 .*.lb
 
+## Not the generated PDF though.
+Using_GitHub.pdf
+
 ## Intermediate documents:
 *.dvi
 *.xdv
